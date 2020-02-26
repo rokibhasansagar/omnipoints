@@ -67,3 +67,4 @@ repo_sync_shallow() {
   curl -sL https://gist.github.com/rokibhasansagar/2de6065bf57c9d1027cbafbb8ce7bbf0/raw/4c12450d6f145111137f630d387c87c4c0e7d658/upstream.sh -o upstream.sh
   chmod a+x ./upstream.sh
   ./upstream.sh
+}
