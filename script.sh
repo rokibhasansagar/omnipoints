@@ -66,7 +66,7 @@ repo_sync_shallow() {
 
   # Merge AOSP
   cd vendor/omni/utils
-  curl -sL https://gist.github.com/rokibhasansagar/2de6065bf57c9d1027cbafbb8ce7bbf0/raw/5b3bbfa83f474c384a612654971c4c1fb947f905/upstream.sh -o upstream.sh
+  curl -sL https://gist.githubusercontent.com/rokibhasansagar/2de6065bf57c9d1027cbafbb8ce7bbf0/raw/5baa026e33fbf6591e333a895ee0b14b20cb505e/upstream.sh -o upstream.sh
   chmod a+x ./upstream.sh
   ./upstream.sh
 
