@@ -62,11 +62,16 @@ repo_sync_shallow() {
 
   echo -e "\n" $CL_MAG "SHALLOW Source Syncing done" $CL_RST
   
+  du -sh *
+
   # Merge AOSP
   cd vendor/omni/utils
-  curl -sL https://gist.github.com/rokibhasansagar/2de6065bf57c9d1027cbafbb8ce7bbf0/raw/4c12450d6f145111137f630d387c87c4c0e7d658/upstream.sh -o upstream.sh
+  curl -sL https://gist.github.com/rokibhasansagar/2de6065bf57c9d1027cbafbb8ce7bbf0/raw/5b3bbfa83f474c384a612654971c4c1fb947f905/upstream.sh -o upstream.sh
   chmod a+x ./upstream.sh
   ./upstream.sh
+
+  du -sh $DIR/*
 }
 
+git_auth
 repo_sync_shallow
