@@ -68,3 +68,5 @@ repo_sync_shallow() {
   chmod a+x ./upstream.sh
   ./upstream.sh
 }
+
+repo_sync_shallow
