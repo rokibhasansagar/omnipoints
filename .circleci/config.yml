@@ -5,6 +5,18 @@ jobs:
       - image: fr3akyphantom/skadoosh:latest
     working_directory: /home/alpine/projects/
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "1f:32:db:20:3f:f5:c0:0d:d8:01:b7:19:53:d0:5d:bd"
+      - add_ssh_keys:
+          fingerprints:
+            - "c1:38:33:3d:96:e5:73:2b:16:5a:d3:b1:23:7b:d9:9d"
+      - add_ssh_keys:
+          fingerprints:
+            - "39:75:5a:6a:30:7e:18:f9:49:f1:4a:2e:c3:73:08:af"
+      - add_ssh_keys:
+          fingerprints:
+            - "97:4b:a2:02:ee:f0:59:09:b9:2e:91:34:2d:3d:c1:9e"
       - checkout
       - run:
           name: Create Persistent act-shell
