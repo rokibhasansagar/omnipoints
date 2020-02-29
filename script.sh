@@ -17,8 +17,6 @@ DIR=$(pwd)
 mkdir tranSKadooSH
 cd tranSKadooSH
 
-datetime=$(date +%Y%m%d)
-
 omni_br=android-6.0
 
 google_cookies() {
@@ -74,6 +72,10 @@ repo_sync_shallow() {
   chmod a+x ./aosp-merge.sh ./aosp-push-merge.sh
 
   ./aosp-merge.sh
+
+  # Add ssh known hosts
+  ssh-keyscan -H gerrit.omnirom.org >> ~/.ssh/known_hosts || ssh-keyscan -t rsa -H gerrit.omnirom.org:29418 >> ~/.ssh/known_hosts
+  ssh -o StrictHostKeyChecking=no rokibhasansagar@gerrit.omnirom.org:29418
 
   cd $DIR/tranSKadooSH/vendor/omni/utils
   ./aosp-push-merge.sh
