@@ -19,6 +19,8 @@ cd tranSKadooSH
 
 datetime=$(date +%Y%m%d)
 
+omni_br=android-6.0
+
 google_cookies() {
   echo -en "\n" $CL_INS "Setup Google Cookies for Smooth googlesource Cloning" $CL_RST
   git clone -q "https://$GITHUB_TOKEN@github.com/rokibhasansagar/google-git-cookies.git" &> /dev/null
@@ -50,7 +52,7 @@ trim_darwin() {
 
 repo_sync_shallow() {
   echo -e "\n\n" $CL_GRN "Initialize repo Command" $CL_RST
-  repo init -q -u https://github.com/omnirom/android -b android-6.0
+  repo init -q -u https://github.com/omnirom/android -b $omni_br
 
   trim_darwin
 
@@ -66,11 +68,15 @@ repo_sync_shallow() {
 
   # Merge AOSP
   cd vendor/omni/utils
-  curl -sL https://gist.githubusercontent.com/rokibhasansagar/2de6065bf57c9d1027cbafbb8ce7bbf0/raw/5baa026e33fbf6591e333a895ee0b14b20cb505e/upstream.sh -o upstream.sh
-  chmod a+x ./upstream.sh
-  ./upstream.sh
+  rm -f aosp-merge.sh aosp-push-merge.sh
+  curl -sL https://gist.github.com/rokibhasansagar/2de6065bf57c9d1027cbafbb8ce7bbf0/raw/c2036b8780a0e8e93c98bf77278ae27e5f7a20f2/aosp-merge.sh -o aosp-merge.sh
+  curl -sL https://gist.github.com/rokibhasansagar/406f0fcf93671691873b12b684f047e1/raw/b6a717098d33228da109a5778b04be889e073a51/aosp-push-merge.sh -o aosp-push-merge.sh
+  chmod a+x ./aosp-merge.sh ./aosp-push-merge.sh
 
-  du -sh $DIR/*
+  ./aosp-merge.sh
+
+  cd $DIR/tranSKadooSH/vendor/omni/utils
+  ./aosp-push-merge.sh
 }
 
 git_auth
