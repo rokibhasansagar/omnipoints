@@ -4,13 +4,17 @@ jobs:
     docker:
       - image: fr3akyphantom/droid-builder:latest
     environment:
-      TERM: xterm
+      TERM: xterm-256color
     working_directory: /home/builder/test/
     steps:
       - run:
           name: Demo
           command: |
-            echo -e "\033[31m Where am I? \033[0m"
+            # Colors
+            CL_XOS="\033[34;1m"; CL_PFX="\033[33m"; CL_INS="\033[36m"; CL_RED="\033[31m"; CL_GRN="\033[32m"; CL_YLW="\033[33m"; CL_BLU="\033[34m"; CL_MAG="\033[35m"; CL_CYN="\033[36m"; CL_RST="\033[0m"
+
+            echo -e "$CL_XOS Where am I? $CL_RST"
+            printf "$CL_BLU Using printf. So, where were we?! $CL_RST"
             pwd
             ls -la .
             tree
