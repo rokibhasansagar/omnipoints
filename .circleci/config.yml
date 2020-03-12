@@ -28,10 +28,11 @@ jobs:
             echo -e "\n nproc test"
             nproc --all
 
-            echo -e "Some Data\nThat need to be on\nA file" > demo_data.txt
-            ls -la .
-            rename 's/\.txt$/_renamed.txt/' *txt
-            ls -la .
+            mkdir subs
+            echo -e "Some Data\nThat need to be on\nA file" > subs/demo_data.txt
+            ls -la *
+            rename 's/\.txt$/_renamed.txt/' subs/*txt
+            ls -la *
 
 workflows:
   version: 2
