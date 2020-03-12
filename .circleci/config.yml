@@ -28,7 +28,10 @@ jobs:
             echo -e "\n nproc test"
             nproc --all
 
-            which make && make -V
+            echo -e "Some Data\nThat need to be on\nA file" > demo_data.txt
+            ls -la .
+            rename 's/\.txt$/_renamed.txt/' *txt
+            ls -la .
 
 workflows:
   version: 2
