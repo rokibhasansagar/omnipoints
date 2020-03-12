@@ -13,6 +13,7 @@ jobs:
             ls -la .
             tree
 
+            echo -e "\n $TERM \n\n"
             echo -e "\n rename test"
             which rename
             RenExec=$(which rename 2>/dev/null)
