@@ -16,7 +16,11 @@ jobs:
             echo -e "\n rename test"
             which rename
             RenExec=$(which rename 2>/dev/null)
-            if [[ -z $RenExec ]]; do echo "rename not found!"; apt-get -qqy update && apt-get -qqy install rename; which rename && rename --help; done; fi
+            if [[ -z $RenExec ]]; then
+              echo "rename not found!"
+              apt-get -qqy update && apt-get -qqy install rename
+              which rename && rename --help
+            fi
 
             echo -e "\n lscpu test"
             lscpu && lscpu --extended --all
