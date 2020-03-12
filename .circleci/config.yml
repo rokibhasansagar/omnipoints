@@ -3,12 +3,14 @@ jobs:
   build:
     docker:
       - image: fr3akyphantom/droid-builder:latest
+    environment:
+      TERM: xterm
     working_directory: /home/builder/test/
     steps:
       - run:
           name: Demo
           command: |
-            echo -e "\n Where am I?!\n"
+            echo -e "\033[31m Where am I? \033[0m"
             pwd
             ls -la .
             tree
